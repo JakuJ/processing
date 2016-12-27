@@ -39,6 +39,7 @@ void setup()
   }
 }
 
+//declare drawing mode
 int shape_mode = POINTS;
 
 void draw()
