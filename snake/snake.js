@@ -1,5 +1,7 @@
 var apple, 
-    speed;
+    speed,
+    xStart,
+    yStart;
 
 function Snake(x, y) {
   this.x = x;
@@ -39,31 +41,22 @@ function mod(n, m) {
 
 function new_apple() {
   var x, y, good;
-  while (true) {
-    x = floor(random() * width / speed) * speed;
-    y = floor(random() * height / speed) * speed;
-    good = true;
-    for (var i = 0; i < player.body.length; i++) {
-      if (player.body[i][0] == x && player.body[i][1] == y) {
-        good = false;
-      }
-    }
-    if (good) {
-      apple = [x, y];
-      return;
-    }
-  }
+  x = xStart + (floor((random() - 0.5) * width/speed) * speed) % (width - width%speed);
+  y = yStart + (floor((random() - 0.5) * height/speed) * speed) % (height - height%speed);
+  apple = [x,y]
 }
 
 function setup() {
-  createCanvas(640, 640);
+  createCanvas(windowWidth, windowHeight);
   background('black');
   frameRate(20);
   textSize(16);
   noStroke();
   speed = 20;
   score = 0;
-  player = new Snake(height/2, width/2);
+  xStart = floor(width/2);
+  yStart = floor(height/2);
+  player = new Snake(xStart, yStart);
   new_apple();
 }
 
@@ -71,7 +64,7 @@ function draw() {
   bugfix = false;
   background('black');
   text("Score: " + (player.body.length * 10 - 30), 30, 30);
-  if (player.x == apple[0] && player.y == apple[1]) {
+  if (abs(player.x - apple[0]) < speed/2 && abs(player.y - apple[1]) < speed/2) {
     new_apple();
     player.move(true);
   } else {
