@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3f51b5</color>
+    <color name="colorPrimaryDark">#100d64</color>
+    <color name="startStopButtonColor">#448637</color>
+    <color name="startStopButtonColorAlternative">#af2b32</color>
+    <color name="resetButtonColor">#8964cf</color>
+    <color name="colorAccent">#000000</color>
+</resources>

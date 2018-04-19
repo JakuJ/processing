@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Multibody Sim</string>
+    <string name="logo_description">Game Logo</string>
+    <string name="start_button_text">Start Game</string>
+    <string name="exit_button_text">Exit</string>
+
+</resources>
